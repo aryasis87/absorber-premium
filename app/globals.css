@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 
 :root {
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @theme inline {
@@ -11,4 +13,5 @@
 }
 
 body {
+    font-family: var(--font-secondary);
 }

@@ -1,59 +1,9 @@
 'use client'
 
 import { motion, useTransform, useScroll } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 import Image from 'next/image'
-import { ShieldCheck, Globe } from 'lucide-react'
-
-// ✅ Type Definitions
-type Decoration = {
-  width: number
-  height: number
-  left: string
-  top: string
-  x: number
-  y: number
-  duration: number
-}
-
-type Dot = {
-  left: string
-  top: string
-}
-
-// ✅ Helper hooks
-function useRandomDecorations(count: number): Decoration[] {
-  const [items, setItems] = useState<Decoration[]>([])
-
-  useEffect(() => {
-    const generated: Decoration[] = [...Array(count)].map(() => ({
-      width: Math.random() * 300 + 100,
-      height: Math.random() * 300 + 100,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      x: (Math.random() - 0.5) * 100,
-      y: (Math.random() - 0.5) * 100,
-      duration: Math.random() * 10 + 10
-    }))
-    setItems(generated)
-  }, [count])
-
-  return items
-}
-
-function useRandomDots(count: number): Dot[] {
-  const [dots, setDots] = useState<Dot[]>([])
-
-  useEffect(() => {
-    const generated: Dot[] = [...Array(count)].map(() => ({
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`
-    }))
-    setDots(generated)
-  }, [count])
-
-  return dots
-}
+import { Leaf, Package, CheckCircle, Globe } from 'lucide-react'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -62,276 +12,198 @@ export default function Hero() {
     offset: ['start start', 'end start']
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
-  const decorations = useRandomDecorations(12)
-  const dots = useRandomDots(3)
+  const y = useTransform(scrollYProgress, [0, 1], [0, 50])
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0])
 
   return (
     <section
       ref={ref}
-      className="relative h-screen min-h-[800px] overflow-hidden bg-gradient-to-br from-white to-[#F1F5F9] flex items-center"
+      className="relative h-screen min-h-[800px] overflow-hidden flex items-center justify-center bg-gradient-to-br from-white to-[#f8faf8]"
     >
-      {/* Animated gradient background */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          background: [
-            'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-            'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)',
-            'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-          ]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          repeatType: 'reverse'
-        }}
-      />
-
-      {/* Decorative elements */}
+      {/* Natural Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {decorations.map((item, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-[#55A630]/10"
-            style={{
-              width: item.width,
-              height: item.height,
-              left: item.left,
-              top: item.top
-            }}
-            animate={{
-              x: [0, item.x],
-              y: [0, item.y],
-              scale: [1, 1.05, 1]
-            }}
-            transition={{
-              duration: item.duration,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut'
-            }}
-          />
-        ))}
+        {/* Subtle leaf pattern */}
+        <div className="absolute inset-0 bg-[url('/images/leaf-pattern.svg')] bg-[size:200px_200px] opacity-[0.03]" />
+        
+        {/* Organic shapes */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[#55A630]/5 blur-[80px]" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-[#8CCF42]/5 blur-[60px]" />
       </div>
 
-      {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 w-full z-10">
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div className="relative z-10" style={{ y, opacity }}>
+            {/* Eco-friendly Badge */}
             <motion.div
+              className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ delay: 0.2 }}
             >
-              <motion.h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 leading-tight mb-6">
-                <motion.span
-                  className="block bg-clip-text text-transparent bg-gradient-to-r from-[#55A630] to-[#8CCF42]"
-                  animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    repeatType: 'reverse'
-                  }}
-                >
-                  Solusi Segar
-                </motion.span>
-                <motion.span className="block">untuk Buah</motion.span>
-                <motion.span className="inline-block bg-gradient-to-r from-[#4CAF50] to-[#2E7D32] bg-clip-text text-transparent">
-                  Berkualitas Ekspor
-                </motion.span>
-              </motion.h1>
+              <Leaf className="text-[#55A630]" size={18} />
+              <span className="text-sm font-medium text-gray-700">Ramah Lingkungan & Alami</span>
+            </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="text-lg sm:text-xl text-gray-600 max-w-xl mb-8"
+            {/* Headline */}
+            <motion.h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              <span className="block">Jaga Kesegaran</span>
+              <span className="block text-[#55A630] mt-2">Buah & Sayuran</span>
+              <span className="block text-gray-700 mt-2">Lebih Lama & Alami</span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              className="text-lg text-gray-600 max-w-xl mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              Ethylene absorber kami menggunakan bahan alami untuk memperpanjang kesegaran produk pertanian tanpa bahan kimia berbahaya. Solusi aman untuk distribusi dan penyimpanan.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <motion.a
+                href="/produk"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3.5 bg-[#55A630] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3"
               >
-                Ethylene absorber premium kami menjaga kesegaran buah selama distribusi.
-                Teknologi mutakhir dengan desain elegan.
-              </motion.p>
+                <Package size={20} />
+                Lihat Produk
+              </motion.a>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-4"
+              <motion.a
+                href="/tentang"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3.5 bg-white text-gray-700 font-medium border border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-300 flex items-center gap-3"
               >
-                <motion.a
-                  href="/produk"
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 10px 25px -5px rgba(85, 166, 48, 0.4)'
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block rounded-full bg-gradient-to-r from-[#55A630] to-[#8CCF42] text-white font-semibold px-6 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                >
-                  <span className="relative z-10">Lihat Produk</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-[#8CCF42] to-[#55A630] opacity-0 group-hover:opacity-100 transition duration-500" />
+                Pelajari Teknologi
+              </motion.a>
+            </motion.div>
 
-                  {/* Animated dots */}
-                  {dots.map((dot, i) => (
-                    <motion.span
-                      key={i}
-                      className="absolute rounded-full bg-white/30"
-                      style={{
-                        width: 8,
-                        height: 8,
-                        left: dot.left,
-                        top: dot.top
-                      }}
-                      animate={{
-                        scale: [0, 1, 0],
-                        opacity: [0, 0.8, 0]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.5
-                      }}
-                    />
-                  ))}
-                </motion.a>
-
-                <motion.a
-                  href="/kontak"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-block rounded-full bg-white text-gray-800 border border-gray-300 font-semibold px-6 py-3 text-base shadow-sm hover:shadow-md hover:border-gray-400 transition-all duration-300 relative overflow-hidden"
-                >
-                  <span className="relative z-10">Konsultasi Gratis</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 -translate-x-full group-hover:translate-x-full" />
-                </motion.a>
-              </motion.div>
+            {/* Benefit Points */}
+            <motion.div 
+              className="mt-12 flex flex-wrap gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              {[
+                { icon: CheckCircle, text: "Tanpa Bahan Kimia" },
+                { icon: Leaf, text: "Ramah Lingkungan" },
+                { icon: Globe, text: "Standar Internasional" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center">
+                  <item.icon className="text-[#55A630] mr-2" size={20} />
+                  <span className="text-gray-700">{item.text}</span>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Produk Premium */}
+          {/* Product Showcase */}
           <motion.div
-            className="relative"
+            className="relative h-[500px]"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative w-full h-[500px]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full max-w-md h-[400px]">
-                  <motion.div
-                    className="absolute inset-0 rounded-3xl bg-[#55A630]/20 blur-2xl"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 6, repeat: Infinity }}
-                  />
-
-                  <div className="relative h-full w-full flex items-center justify-center">
-                    <motion.div
-                      animate={{ rotate: [0, 2, -2, 0], y: [0, -10, 0] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                    >
-                      <Image
-                        src="/images/fruit-sachet.webp"
-                        alt="Ethylene Absorber Premium"
-                        width={500}
-                        height={500}
-                        className="object-contain h-full w-full z-10 drop-shadow-2xl"
-                        priority
-                      />
-                    </motion.div>
-                  </div>
-
-                  {/* Floating Fruits */}
-                  <motion.div
-                    className="absolute -left-10 -top-10 z-20"
-                    animate={{ y: [0, -15, 0] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                  >
-                    <motion.div
-                      animate={{ rotate: [0, 15, 0] }}
-                      transition={{ duration: 8, repeat: Infinity }}
-                    >
-                      <Image
-                        src="/images/buahsegar2.webp"
-                        alt="Buah Segar"
-                        width={150}
-                        height={150}
-                        className="drop-shadow-lg"
-                      />
-                    </motion.div>
-                  </motion.div>
-
-                  <motion.div
-                    className="absolute -right-10 -bottom-10 z-20"
-                    animate={{ y: [0, 15, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
-                  >
-                    <motion.div
-                      animate={{ rotate: [0, -15, 0] }}
-                      transition={{ duration: 7, repeat: Infinity }}
-                    >
-                      <Image
-                        src="/images/minuman1.webp"
-                        alt="Buah Segar"
-                        width={130}
-                        height={130}
-                        className="drop-shadow-lg"
-                      />
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Badges */}
-              <motion.div
-                className="absolute left-0 top-1/4 bg-white rounded-lg shadow-xl p-3 z-30 flex items-center backdrop-blur-sm bg-white/80"
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                whileHover={{ y: -5 }}
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Product Container */}
+              <motion.div 
+                className="w-full max-w-md h-[400px] rounded-3xl bg-white shadow-xl border border-gray-100 flex items-center justify-center p-8"
+                animate={{ 
+                  y: [0, -10, 0],
+                }}
+                transition={{ 
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
               >
-                <div className="bg-[#55A630] rounded-md p-2 mr-3">
-                  <ShieldCheck className="text-white" size={24} />
-                </div>
-                <span className="text-sm font-medium">Sertifikasi BPOM</span>
+                <Image
+                  src="/images/l1.webp"
+                  alt="Ethylene Absorber Sachet"
+                  width={350}
+                  height={350}
+                  className="object-contain z-10"
+                  priority
+                />
+              </motion.div>
+
+              {/* Floating Fruits */}
+              <motion.div
+                className="absolute top-20 left-0 z-20"
+                animate={{ 
+                  y: [0, -15, 0],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{ 
+                  duration: 6,
+                  repeat: Infinity,
+                  delay: 0.5
+                }}
+              >
+                <Image
+                  src="/images/l2.webp"
+                  alt="Buah Segar"
+                  width={120}
+                  height={120}
+                  className="drop-shadow-lg rounded-full"
+                />
               </motion.div>
 
               <motion.div
-                className="absolute right-0 bottom-1/4 bg-white rounded-lg shadow-xl p-3 z-30 flex items-center backdrop-blur-sm bg-white/80"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1 }}
-                whileHover={{ y: -5 }}
+                className="absolute bottom-20 right-0 z-20"
+                animate={{ 
+                  y: [0, 15, 0],
+                  rotate: [0, -5, 0]
+                }}
+                transition={{ 
+                  duration: 7,
+                  repeat: Infinity,
+                  delay: 1
+                }}
               >
-                <div className="bg-[#2B6CB0] rounded-md p-2 mr-3">
-                  <Globe className="text-white" width={24} height={24} />
-                </div>
-                <span className="text-sm font-medium">Standar Ekspor</span>
+                <Image
+                  src="/images/l4.webp"
+                  alt="Buah Segar"
+                  width={140}
+                  height={140}
+                  className="drop-shadow-lg rounded-3xl"
+                />
               </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scrolling indicator */}
+      {/* Scrolling Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"
+        animate={{ opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-[#55A630] rounded-full flex justify-center backdrop-blur-sm bg-white/10">
-          <motion.div
-            className="w-1 h-2 bg-[#55A630] rounded-full mt-1"
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </div>
+        <div className="text-[#55A630] text-sm mb-2">Scroll untuk menjelajahi</div>
         <motion.div
-          className="text-[#55A630] text-xs font-medium mt-2 text-center"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
         >
-          Scroll untuk jelajahi
+          <div className="w-5 h-8 border-2 border-[#55A630] rounded-full flex justify-center">
+            <motion.div
+              className="w-1 h-2 bg-[#55A630] rounded-full mt-1"
+              animate={{ y: [0, 3, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
         </motion.div>
       </motion.div>
     </section>

@@ -1,148 +1,141 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { 
   Phone, Mail, MapPin, 
-  Facebook, Twitter, Instagram, Linkedin 
+  Facebook, Twitter, Instagram, Linkedin, 
+  Leaf, Package, Gift, Truck, HelpCircle, MessageSquare, BookOpen
 } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-  
+
   return (
-    <motion.footer 
-      className="bg-[#0a2e1d] text-gray-300"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
+    <footer className="bg-gradient-to-b from-[#0a2e1d] to-[#071e12] text-gray-300">
       {/* Decorative top gradient */}
-      <div className="h-1 bg-gradient-to-r from-[#55A630] via-[#8CCF42] to-[#55A630]"></div>
+      <div className="h-1.5 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500"></div>
       
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand info */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#55A630] to-[#8CCF42] rounded-lg flex items-center justify-center">
-                <div className="text-white">
-                  <LeafIcon />
-                </div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl flex items-center justify-center shadow-lg">
+                <Leaf className="text-white w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold text-white">
-                Ethylene<span className="font-light">Absorber</span>
-              </h3>
+              <div>
+                <h3 className="text-2xl font-bold text-white">
+                  Ethylene<span className="font-light">Absorber</span>
+                </h3>
+                <p className="text-emerald-400 text-sm font-medium tracking-wider mt-1">
+                  PREMIUM QUALITY SOLUTIONS
+                </p>
+              </div>
             </div>
             
-            <p className="mb-6 text-gray-400 max-w-xs">
-              Solusi terdepan untuk menjaga kesegaran buah selama distribusi dan ekspor dengan teknologi ethylene absorber.
+            <p className="mb-8 text-gray-400 max-w-xs text-lg leading-relaxed">
+              Solusi premium untuk menjaga kesegaran buah selama distribusi dan ekspor dengan teknologi ethylene absorber terkini.
             </p>
             
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {socialLinks.map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#1e3d2c] flex items-center justify-center hover:bg-[#55A630] transition-colors"
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="w-12 h-12 rounded-xl bg-emerald-900/50 flex items-center justify-center hover:bg-emerald-700 transition-all duration-300 group"
                 >
-                  <social.icon className="text-gray-300 hover:text-white" size={18} />
-                </motion.a>
+                  <social.icon className="text-gray-300 group-hover:text-white" size={20} />
+                </a>
               ))}
             </div>
           </div>
           
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-6 pb-2 border-b border-[#55A630]/30">
-              Tautan Cepat
+            <h4 className="text-xl font-bold text-white mb-8 pb-3 border-b border-emerald-700/50">
+              Navigasi
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {quickLinks.map((link, index) => (
-                <motion.li 
-                  key={index}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <li key={index}>
                   <Link 
                     href={link.href} 
-                    className="flex items-center gap-2 hover:text-[#8CCF42] transition-colors"
+                    className="flex items-center gap-3 group py-2.5 hover:text-emerald-400 transition-colors duration-300"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#55A630]"></div>
-                    {link.label}
+                    <div className="w-8 h-8 rounded-lg bg-emerald-900/50 flex items-center justify-center group-hover:bg-emerald-700 transition-colors">
+                      <link.icon size={16} className="text-emerald-400" />
+                    </div>
+                    <span className="text-lg font-medium">{link.label}</span>
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
           
           {/* Products */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-6 pb-2 border-b border-[#55A630]/30">
+            <h4 className="text-xl font-bold text-white mb-8 pb-3 border-b border-emerald-700/50">
               Produk Kami
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {products.map((product, index) => (
-                <motion.li 
-                  key={index}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <li key={index}>
                   <Link 
                     href={product.href} 
-                    className="flex items-center gap-2 hover:text-[#8CCF42] transition-colors"
+                    className="flex items-center gap-3 group py-2.5 hover:text-emerald-400 transition-colors duration-300"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#55A630]"></div>
-                    {product.label}
+                    <div className="w-8 h-8 rounded-lg bg-emerald-900/50 flex items-center justify-center group-hover:bg-emerald-700 transition-colors">
+                      <product.icon size={16} className="text-emerald-400" />
+                    </div>
+                    <span className="text-lg font-medium">{product.label}</span>
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
           
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-6 pb-2 border-b border-[#55A630]/30">
-              Hubungi Kami
+            <h4 className="text-xl font-bold text-white mb-8 pb-3 border-b border-emerald-700/50">
+              Kontak Kami
             </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <div className="mt-1 text-[#55A630]">
-                  <Phone size={18} />
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <div className="mt-1 w-10 h-10 rounded-lg bg-emerald-900/50 flex items-center justify-center">
+                  <Phone size={20} className="text-emerald-400" />
                 </div>
                 <div>
-                  <div className="font-medium">Telepon</div>
-                  <a href="tel:+628123456789" className="hover:text-[#8CCF42] transition-colors">
+                  <div className="font-medium text-lg text-emerald-100">Telepon</div>
+                  <a href="tel:+628123456789" className="text-lg hover:text-emerald-400 transition-colors block mt-1">
                     +62 812 3456 7890
                   </a>
                 </div>
               </li>
               
-              <li className="flex items-start gap-3">
-                <div className="mt-1 text-[#55A630]">
-                  <Mail size={18} />
+              <li className="flex items-start gap-4">
+                <div className="mt-1 w-10 h-10 rounded-lg bg-emerald-900/50 flex items-center justify-center">
+                  <Mail size={20} className="text-emerald-400" />
                 </div>
                 <div>
-                  <div className="font-medium">Email</div>
-                  <a href="mailto:info@ethyleneabsorber.com" className="hover:text-[#8CCF42] transition-colors">
+                  <div className="font-medium text-lg text-emerald-100">Email</div>
+                  <a href="mailto:info@ethyleneabsorber.com" className="text-lg hover:text-emerald-400 transition-colors block mt-1">
                     info@ethyleneabsorber.com
                   </a>
                 </div>
               </li>
               
-              <li className="flex items-start gap-3">
-                <div className="mt-1 text-[#55A630]">
-                  <MapPin size={18} />
+              <li className="flex items-start gap-4">
+                <div className="mt-1 w-10 h-10 rounded-lg bg-emerald-900/50 flex items-center justify-center">
+                  <MapPin size={20} className="text-emerald-400" />
                 </div>
                 <div>
-                  <div className="font-medium">Alamat</div>
-                  <div>Jl. Teknologi No. 123, Bandung, Indonesia 40234</div>
+                  <div className="font-medium text-lg text-emerald-100">Alamat</div>
+                  <div className="text-lg mt-1">
+                    Jl. Teknologi No. 123, Bandung, Indonesia 40234
+                  </div>
                 </div>
               </li>
             </ul>
@@ -150,90 +143,84 @@ export default function Footer() {
         </div>
         
         {/* Newsletter */}
-        <motion.div 
-          className="mt-16 p-6 rounded-xl bg-gradient-to-r from-[#0d3b26] to-[#1a4d32] border border-[#55A630]/30"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">
-              Dapatkan Update Terbaru
+        <div className="mt-20 p-8 rounded-2xl bg-gradient-to-r from-emerald-900/50 to-emerald-800/30 border border-emerald-700/30 backdrop-blur-sm relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-emerald-700/10"></div>
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-emerald-600/10"></div>
+          </div>
+          
+          <div className="max-w-3xl mx-auto text-center relative z-10">
+            <h3 className="text-3xl font-bold text-white mb-4">
+              Tetap Terhubung dengan Kami
             </h3>
-            <p className="mb-6 text-gray-300">
-              Berlangganan newsletter kami untuk mendapatkan informasi produk terbaru dan tips menjaga kesegaran buah
+            
+            <p className="mb-8 text-gray-300 text-lg max-w-2xl mx-auto">
+              Berlangganan newsletter eksklusif untuk mendapatkan informasi produk terbaru, tips menjaga kesegaran buah, dan penawaran khusus
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input 
                 type="email" 
                 placeholder="Email Anda" 
-                className="flex-1 px-4 py-3 rounded-lg bg-[#1a4d32] border border-[#55A630]/50 focus:outline-none focus:ring-2 focus:ring-[#8CCF42] text-white"
+                className="flex-1 px-5 py-4 rounded-xl bg-emerald-900/40 border border-emerald-700/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-white placeholder-gray-400 text-lg"
               />
-              <motion.button
-                className="px-6 py-3 bg-gradient-to-r from-[#55A630] to-[#8CCF42] text-white rounded-lg font-medium hover:shadow-lg transition-shadow"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+              <button
+                className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 group"
               >
-                Berlangganan
-              </motion.button>
+                <span className="flex items-center justify-center gap-2">
+                  Berlangganan
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+              </button>
             </div>
-          </div>
-        </motion.div>
-      </div>
-      
-      {/* Copyright */}
-      <div className="border-t border-[#1a4d32] py-6">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p>© {currentYear} Dickson Synergy. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-[#8CCF42] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#8CCF42] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
-    </motion.footer>
+      
+      {/* Copyright */}
+      <div className="border-t border-emerald-900 py-8">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-emerald-500/80">
+            © {currentYear} Dickson Synergy. All rights reserved.
+          </p>
+          
+          <div className="flex gap-8">
+            <Link href="/privacy" className="text-emerald-300 hover:text-white transition-colors flex items-center gap-2">
+              <BookOpen size={16} />
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-emerald-300 hover:text-white transition-colors flex items-center gap-2">
+              <BookOpen size={16} />
+              Terms of Service
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
   )
 }
 
 const socialLinks = [
-  { icon: Facebook, url: "https://facebook.com" },
-  { icon: Twitter, url: "https://twitter.com" },
-  { icon: Instagram, url: "https://instagram.com" },
-  { icon: Linkedin, url: "https://linkedin.com" },
+  { icon: Facebook, url: "https://facebook.com", color: "#1877F2" },
+  { icon: Twitter, url: "https://twitter.com", color: "#1DA1F2" },
+  { icon: Instagram, url: "https://instagram.com", color: "#E1306C" },
+  { icon: Linkedin, url: "https://linkedin.com", color: "#0A66C2" },
 ]
 
 const quickLinks = [
-  { label: "Beranda", href: "/" },
-  { label: "Manfaat", href: "#features" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Kontak", href: "/kontak" },
-  { label: "Blog", href: "/blog" },
+  { label: "Beranda", href: "/", icon: Leaf },
+  { label: "Manfaat", href: "#features", icon: Gift },
+  { label: "FAQ", href: "/faq", icon: HelpCircle },
+  { label: "Kontak", href: "/kontak", icon: MessageSquare },
+  { label: "Blog", href: "/blog", icon: BookOpen },
 ]
 
 const products = [
-  { label: "Ethylene Absorber", href: "/produk/ethylene-absorber" },
-  { label: "Kemasan Buah", href: "/produk/kemasan-buah" },
-  { label: "Paket Ekspor", href: "/produk/paket-ekspor" },
-  { label: "Solusi Distribusi", href: "/produk/solusi-distribusi" },
+  { label: "Ethylene Absorber", href: "/produk/ethylene-absorber", icon: Leaf },
+  { label: "Kemasan Buah", href: "/produk/kemasan-buah", icon: Package },
+  { label: "Paket Ekspor", href: "/produk/paket-ekspor", icon: Gift },
+  { label: "Solusi Distribusi", href: "/produk/solusi-distribusi", icon: Truck },
 ]
-
-function LeafIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-    </svg>
-  )
-}

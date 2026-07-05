@@ -70,7 +70,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
             >
               <motion.a
-                href="/produk"
+                href="/#features"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-3.5 bg-[#55A630] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3"
@@ -80,7 +80,7 @@ export default function Hero() {
               </motion.a>
 
               <motion.a
-                href="/tentang"
+                href="/#features"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-3.5 bg-white text-gray-700 font-medium border border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-300 flex items-center gap-3"

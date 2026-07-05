@@ -161,7 +161,7 @@ export default function Navbar() {
                 >
                   <div className="py-2">
                     <Link 
-                      href="/produk/ethylene-absorber" 
+                      href="/#features" 
                       className="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 transition group"
                       onClick={() => setOpenProducts(false)}
                     >
@@ -174,7 +174,7 @@ export default function Navbar() {
                       </div>
                     </Link>
                     <Link 
-                      href="/produk/kemasan-buah" 
+                      href="/#features" 
                       className="flex items-center gap-3 px-5 py-3 hover:bg-emerald-50 transition group"
                       onClick={() => setOpenProducts(false)}
                     >
@@ -321,7 +321,7 @@ export default function Navbar() {
                         exit={{ opacity: 0, height: 0 }}
                       >
                         <Link 
-                          href="/produk/ethylene-absorber" 
+                          href="/#features" 
                           className="block py-3 text-xl text-gray-600 hover:text-emerald-700 font-medium pl-2 rounded-lg hover:bg-emerald-50 transition"
                           onClick={() => setOpen(false)}
                         >
@@ -333,7 +333,7 @@ export default function Navbar() {
                           </span>
                         </Link>
                         <Link 
-                          href="/produk/kemasan-buah" 
+                          href="/#features" 
                           className="block py-3 text-xl text-gray-600 hover:text-amber-700 font-medium pl-2 rounded-lg hover:bg-amber-50 transition"
                           onClick={() => setOpen(false)}
                         >

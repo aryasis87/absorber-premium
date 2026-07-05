@@ -100,7 +100,7 @@ export default function HomePage() {
                 Konsultasi Gratis
               </a>
               <a
-                href="/produk"
+                href="/#features"
                 className="px-8 py-3.5 border-2 border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors duration-300"
               >
                 Lihat Produk

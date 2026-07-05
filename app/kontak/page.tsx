@@ -424,7 +424,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg text-gray-800">Navigasi</h3>
                     <p className="text-gray-600">Koordinat: -6.917464, 107.619125</p>
-                    <a href="#" className="text-[#55A630] hover:underline">Petunjuk arah di Google Maps</a>
+                    <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-[#55A630] hover:underline">Petunjuk arah di Google Maps</a>
                   </div>
                 </div>
               </motion.div>
@@ -516,7 +516,7 @@ export default function ContactPage() {
           transition={{ delay: 1 }}
         >
           <motion.a
-            href="#"
+            href="/#features"
             className="w-16 h-16 rounded-full bg-[#55A630] flex items-center justify-center shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

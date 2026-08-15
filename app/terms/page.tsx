@@ -16,25 +16,25 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 pt-28 pb-20 sm:pt-32">
-      <p className="text-sm font-semibold uppercase tracking-wider text-[#7DBE33]">Legal</p>
-      <h1 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">Syarat &amp; Ketentuan</h1>
-      <p className="mt-4 text-gray-500">Terakhir diperbarui: 6 Juli 2026</p>
-      <p className="mt-6 leading-relaxed text-gray-600">
+    <div className="mx-auto max-w-3xl px-6 pt-32 pb-20 sm:pt-40">
+      <p className="tag text-sage">Legal</p>
+      <h1 className="mt-4 text-[2.4rem] font-semibold tracking-[-0.04em] text-ink sm:text-5xl">Syarat &amp; Ketentuan</h1>
+      <p className="tag mt-5 text-ink-soft/60">Terakhir diperbarui: 6 Juli 2026</p>
+      <p className="mt-7 leading-relaxed text-ink-soft">
         Mohon baca ketentuan berikut dengan saksama sebelum menggunakan situs dan layanan kami.
       </p>
-      <div className="mt-10 space-y-8">
+      <div className="mt-12 space-y-8 border-t border-ink/15 pt-10">
         {sections.map((s) => (
           <section key={s.h}>
-            <h2 className="text-xl font-semibold text-gray-900">{s.h}</h2>
-            <p className="mt-2 leading-relaxed text-gray-600">{s.p}</p>
+            <h2 className="text-lg font-semibold text-ink">{s.h}</h2>
+            <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">{s.p}</p>
           </section>
         ))}
       </div>
-      <div className="mt-12 rounded-2xl border border-gray-200 bg-gray-50 p-6">
-        <p className="text-gray-600">Butuh penjelasan lebih lanjut?</p>
-        <Link href="/kontak" className="mt-2 inline-block font-semibold text-[#7DBE33] hover:underline">Hubungi kami →</Link>
+      <div className="mt-14 border-t border-ink/15 pt-8">
+        <p className="text-sm text-ink-soft">Butuh penjelasan lebih lanjut?</p>
+        <Link href="/kontak" className="mt-3 inline-block text-sm font-semibold text-sage underline-offset-4 hover:underline">Hubungi kami →</Link>
       </div>
-    </main>
+    </div>
   );
 }

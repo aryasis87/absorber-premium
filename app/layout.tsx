@@ -3,7 +3,15 @@ import { Figtree } from "next/font/google"
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
-const display = Figtree({ subsets: ["latin"], variable: "--font-display", weight: ["600","700","800"] })
+/* Figtree memikul seluruh teks. Tiga font Google lain yang dulu diimpor di
+   globals (Inter/Manrope/Poppins) dibuang: memberatkan dan Manrope adalah
+   font khas varian crave-amber. */
+const display = Figtree({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+})
 
 const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Premium","description":"Landing page produk ethylene absorber","url":"https://absorber-premium.pintuweb.com"};
 
@@ -39,12 +47,22 @@ export const metadata = {
   },
 }
 
+export const viewport = {
+  themeColor: "#16191c",
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id" className="scroll-smooth">
-      <body className={`${display.variable} antialiased bg-white text-gray-800 selection:bg-lime-200 selection:text-black overflow-x-hidden max-w-[100vw]`}>
+      <body className={`${display.variable} antialiased bg-bone text-ink-soft selection:bg-sage selection:text-bone overflow-x-hidden max-w-[100vw]`}>
         <Navbar />
-        <main>{children}</main>
+        <a
+          href="#konten"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-bone"
+        >
+          Lompat ke konten utama
+        </a>
+        <main id="konten">{children}</main>
         <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
         </body>

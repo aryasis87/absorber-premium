@@ -1,19 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* ==========================================================================
+   EthyleneAbsorber — Konsep "Premium"
+   Bahasa desain: ETALASE (butik)
+   Mutu ditunjukkan lewat kelapangan, bukan lewat hiasan. Tidak ada sudut
+   membulat, tidak ada bayangan, tidak ada gradasi — hanya garis rambut,
+   angka besar beroutline, dan fotografi selebar bidang.
+   ========================================================================== */
 
-:root {
-    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+@theme {
+  --color-ink: #16191c; /* arang — teks & bidang gelap */
+  --color-ink-soft: #565d63;
+  --color-bone: #f4f2ee; /* putih tulang */
+  --color-bone-2: #e7e3dc;
+  --color-sage: #4a6b57; /* satu-satunya aksen warna */
+  --color-sage-deep: #35503f;
 
-@theme inline {
-}
-
-@media (prefers-color-scheme: dark) {
+  --font-sans: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-    font-family: var(--font-secondary);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-bone);
+  color: var(--color-ink-soft);
 }
 
-h1, h2, h3 { font-family: var(--font-display), system-ui, sans-serif; letter-spacing: -0.02em; }
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   1. Label etalase — kapital renggang, selalu kecil
+   -------------------------------------------------------------------------- */
+.tag {
+  font-size: 0.6875rem;
+  line-height: 1.3;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. Angka beroutline — penanda urutan berukuran besar
+   -------------------------------------------------------------------------- */
+.numeral {
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  line-height: 0.82;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+  opacity: 0.35;
+}
+
+/* --------------------------------------------------------------------------
+   3. Kisi garis rambut — struktur etalase yang selalu terlihat samar
+   -------------------------------------------------------------------------- */
+.hairlines {
+  background-image: linear-gradient(to right, rgb(22 25 28 / 0.07) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
+
+.hairlines-dark {
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Aksesibilitas
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 3px;
+}

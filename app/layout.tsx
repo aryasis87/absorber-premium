@@ -13,10 +13,10 @@ const display = Figtree({
   display: "swap",
 })
 
-const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Premium","description":"Landing page produk ethylene absorber","url":"https://absorber-premium.pintuweb.com"};
+const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":"EthyleneAbsorber — Konsep Premium","description":"Landing page produk ethylene absorber","url":"https://absorber-premium.vercel.app"};
 
 export const metadata = {
-  metadataBase: new URL("https://absorber-premium.pintuweb.com"),
+  metadataBase: new URL("https://absorber-premium.vercel.app"),
   title: "EthyleneAbsorber — Konsep Premium | Dickson Synergy",
   description: "Landing page EthyleneAbsorber konsep \"Premium\": bersih dan meyakinkan, menonjolkan kualitas dan kealamian produk.",
   applicationName: "EthyleneAbsorber",
@@ -24,11 +24,11 @@ export const metadata = {
   authors: [{ name: "EthyleneAbsorber" }],
   creator: "EthyleneAbsorber",
   publisher: "EthyleneAbsorber",
-  alternates: { canonical: "https://absorber-premium.pintuweb.com" },
+  alternates: { canonical: "https://absorber-premium.vercel.app" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://absorber-premium.pintuweb.com",
+    url: "https://absorber-premium.vercel.app",
     siteName: "EthyleneAbsorber",
     title: "EthyleneAbsorber — Konsep Premium | Dickson Synergy",
     description: "Landing page EthyleneAbsorber konsep \"Premium\": bersih dan meyakinkan, menonjolkan kualitas dan kealamian produk.",

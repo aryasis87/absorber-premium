@@ -72,8 +72,8 @@ export default function KontakPage() {
                 </div>
                 <h2 className="text-xl font-semibold text-ink">Permintaan tercatat</h2>
                 <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
-                  Terima kasih. Kami meninjau data muatan Anda dan menghubungi kembali pada jam
-                  kerja berikutnya.
+                  Terima kasih. Halaman ini konsep desain untuk kontes, jadi formulir belum
+                  tersambung dan data muatan Anda tidak terkirim.
                 </p>
                 <button
                   onClick={() => setSelesai(false)}

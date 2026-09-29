@@ -69,7 +69,7 @@ export function Stat({
       >
         {value}
       </div>
-      <div className={`tag mt-3 ${tone === 'dark' ? 'text-bone/50' : 'text-ink-soft/65'}`}>
+      <div className={`tag mt-3 ${tone === 'dark' ? 'text-bone/75' : 'text-ink-soft'}`}>
         {label}
       </div>
     </div>

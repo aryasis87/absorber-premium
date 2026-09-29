@@ -8,8 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV = [
   { label: 'Standar', href: '/#standar' },
-  { label: 'Cara Kerja', href: '/#cara-kerja' },
-  { label: 'Catatan Pemakai', href: '/#suara' },
+  { label: 'Etalase', href: '/koleksi' },
+  { label: 'Catatan Pemakai', href: '/catatan' },
   { label: 'Tanya Jawab', href: '/faq' },
 ]
 
@@ -54,7 +54,8 @@ export default function Navbar() {
             <Link
               key={n.href}
               href={n.href}
-              className="tag text-ink-soft transition-colors hover:text-ink"
+              aria-current={!n.href.startsWith('/#') && pathname.startsWith(n.href) ? 'page' : undefined}
+              className={`tag transition-colors hover:text-ink ${!n.href.startsWith('/#') && pathname.startsWith(n.href) ? 'text-ink underline decoration-sage underline-offset-8' : 'text-ink-soft'}`}
             >
               {n.label}
             </Link>
@@ -98,7 +99,7 @@ export default function Navbar() {
               aria-label="Menu navigasi"
             >
               <div className="flex items-center justify-between border-b border-ink/12 px-6 py-4">
-                <span className="tag text-ink-soft/60">Menu</span>
+                <span className="tag text-ink-soft">Menu</span>
                 <button onClick={() => setOpen(false)} className="-mr-2 p-2 text-ink" aria-label="Tutup menu">
                   <X size={20} strokeWidth={1.75} />
                 </button>

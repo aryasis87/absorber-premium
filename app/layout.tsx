@@ -17,7 +17,10 @@ const __jsonld = {"@context":"https://schema.org","@type":"CreativeWork","name":
 
 export const metadata = {
   metadataBase: new URL("https://absorber-premium.vercel.app"),
-  title: "EthyleneAbsorber — Konsep Premium | Dickson Synergy",
+  title: {
+    default: "EthyleneAbsorber — Konsep Premium | Dickson Synergy",
+    template: "%s — PT Dickson Synergy",
+  },
   description: "Landing page EthyleneAbsorber konsep \"Premium\": bersih dan meyakinkan, menonjolkan kualitas dan kealamian produk.",
   applicationName: "EthyleneAbsorber",
   keywords: ["ethylene absorber", "kesegaran buah", "landing page premium", "desain web"],

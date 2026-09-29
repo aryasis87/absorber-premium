@@ -87,7 +87,7 @@ export default function Standards() {
                 <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-ink/15 pt-6">
                   {s.facts.map(([k, v]) => (
                     <div key={k}>
-                      <dt className="tag text-ink-soft/60">{k}</dt>
+                      <dt className="tag text-ink-soft">{k}</dt>
                       <dd className="mt-2 text-base font-semibold text-ink">{v}</dd>
                     </div>
                   ))}

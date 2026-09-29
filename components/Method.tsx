@@ -37,7 +37,7 @@ export default function Method() {
                 {s.no}
               </span>
               <h3 className="mt-5 text-lg font-semibold text-bone">{s.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-bone/60">{s.desc}</p>
+              <p className="mt-2.5 text-sm leading-relaxed text-bone/75">{s.desc}</p>
             </li>
           ))}
         </ol>
@@ -56,7 +56,7 @@ export default function Method() {
               {marks.map(([k, v]) => (
                 <div key={k}>
                   <dt className="text-sm font-semibold text-bone">{k}</dt>
-                  <dd className="tag mt-2 text-bone/50">{v}</dd>
+                  <dd className="tag mt-2 text-bone/75">{v}</dd>
                 </div>
               ))}
             </dl>

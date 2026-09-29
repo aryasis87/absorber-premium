@@ -44,7 +44,7 @@ export default function KontakPage() {
           <dl className="mt-14 grid gap-8 border-t border-bone/25 pt-8 sm:grid-cols-2 lg:grid-cols-4">
             {saluran.map(([label, value, href, note]) => (
               <div key={label}>
-                <dt className="tag text-bone/45">{label}</dt>
+                <dt className="tag text-bone/75">{label}</dt>
                 <dd className="mt-2 text-sm font-semibold text-bone">
                   {href ? (
                     <a href={href} className="break-all transition-colors hover:text-sage">
@@ -54,7 +54,7 @@ export default function KontakPage() {
                     value
                   )}
                 </dd>
-                <dd className="mt-1.5 text-[0.8125rem] leading-relaxed text-bone/50">{note}</dd>
+                <dd className="mt-1.5 text-[0.8125rem] leading-relaxed text-bone/75">{note}</dd>
               </div>
             ))}
           </dl>
@@ -103,7 +103,7 @@ export default function KontakPage() {
                 </div>
 
                 <div className="border-t border-ink/15 pt-8">
-                  <label htmlFor="catatan" className="tag mb-4 block text-ink-soft/65">
+                  <label htmlFor="catatan" className="tag mb-4 block text-ink-soft">
                     Catatan tambahan
                   </label>
                   <textarea
@@ -112,7 +112,7 @@ export default function KontakPage() {
                     rows={4}
                     value={form.catatan}
                     onChange={ubah}
-                    className="w-full resize-y border-b border-ink/25 bg-transparent pb-2 text-sm text-ink placeholder:text-ink-soft/40 focus:border-sage focus:outline-none"
+                    className="w-full resize-y border-b border-ink/25 bg-transparent pb-2 text-sm text-ink placeholder:text-ink-soft focus:border-sage focus:outline-none"
                     placeholder="Kendala yang pernah dialami atau target masa simpan Anda."
                   />
                 </div>
@@ -125,7 +125,7 @@ export default function KontakPage() {
                   {mengirim ? 'Mengirim…' : 'Kirim Permintaan Sample'}
                 </button>
 
-                <p className="tag leading-[1.7] text-ink-soft/45">
+                <p className="tag leading-[1.7] text-ink-soft">
                   Purwarupa desain — pengiriman formulir disimulasikan dan data tidak tersimpan.
                 </p>
               </motion.form>
@@ -159,7 +159,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="tag mb-4 block text-ink-soft/65">
+      <label htmlFor={name} className="tag mb-4 block text-ink-soft">
         {label}
         {required && <span className="ml-1 text-sage">*</span>}
       </label>
@@ -172,7 +172,7 @@ function Field({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full border-b border-ink/25 bg-transparent pb-2 text-sm text-ink placeholder:text-ink-soft/40 focus:border-sage focus:outline-none"
+        className="w-full border-b border-ink/25 bg-transparent pb-2 text-sm text-ink placeholder:text-ink-soft focus:border-sage focus:outline-none"
       />
     </div>
   )

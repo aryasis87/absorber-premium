@@ -43,6 +43,11 @@ export default function Testimonials() {
             no="03"
             tag="Catatan Pemakai"
             title="Dinilai dari yang tidak jadi terbuang"
+            action={
+              <Link href="/catatan" className="tag inline-block border-b border-ink pb-1 text-ink hover:text-sage">
+                Baca tiga catatan lengkap
+              </Link>
+            }
             className="mb-16"
           />
 
@@ -58,14 +63,14 @@ export default function Testimonials() {
                   </span>
                   <span>
                     <span className="block text-sm font-semibold text-ink">{v.name}</span>
-                    <span className="tag mt-1 block text-ink-soft/60">{v.role}</span>
+                    <span className="tag mt-1 block text-ink-soft">{v.role}</span>
                   </span>
                 </figcaption>
               </figure>
             ))}
           </div>
 
-          <p className="tag mt-8 leading-[1.7] text-ink-soft/45">
+          <p className="tag mt-8 leading-[1.7] text-ink-soft">
             Kutipan di atas adalah ilustrasi skenario penggunaan untuk keperluan purwarupa desain.
           </p>
         </div>

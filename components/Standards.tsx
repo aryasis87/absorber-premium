@@ -9,7 +9,7 @@ const standards = [
     tag: 'Sebelum berangkat',
     title: 'Dosis dihitung dari volume, bukan dari berat',
     desc: 'Satu sachet merawat ruang 1–2 m³. Untuk kontainer 20 ft maupun 40 ft, jumlahnya disesuaikan dengan kepadatan susunan peti dan jenis komoditas — dihitung tertulis sebelum pengiriman pertama.',
-    image: '/images/fruit-sachet.webp',
+    image: '/images/sachet-buah.webp',
     facts: [
       ['Cakupan', '1–2 m³'],
       ['Ruang', 'Harus tertutup rapat'],

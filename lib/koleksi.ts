@@ -21,7 +21,7 @@ export const KOLEKSI: Barang[] = [
     slug: 'ethyleneabsorber',
     no: '01',
     nama: 'EthyleneAbsorber',
-    image: '/images/fruit-sachet.webp',
+    image: '/images/sachet-buah.webp',
     kelas: 'Etilen',
     kalimat: 'Menahan pesan pematangan, agar buah tiba seperti saat dipetik.',
     uraian:
@@ -73,7 +73,7 @@ export const KOLEKSI: Barang[] = [
     slug: 'silica-gel',
     no: '04',
     nama: 'Silica Gel',
-    image: '/images/silica.webp',
+    image: '/images/silika.webp',
     kelas: 'Kelembapan',
     kalimat: 'Untuk barang yang tidak boleh lembap sedikit pun.',
     uraian:

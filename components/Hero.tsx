@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="mx-auto max-w-6xl">
           <div className="relative aspect-[4/3] w-full overflow-hidden bg-bone-2 sm:aspect-[16/9]">
             <Image
-              src="/images/l1.webp"
+              src="/images/etalase-sachet.webp"
               alt="Sachet EthyleneAbsorber di antara anggur, blueberry, dan buah persik"
               fill
               priority
